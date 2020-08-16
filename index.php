@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>HOLA</h1>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php 
+  // index.php?controller=Profesor&action=listar 
+  session_start();
+  require_once 'autoload.php';
+  require_once 'Utils/Util.php';
+  
+  // Se obtiene el controlador a ejecutar
+  if(isset($_GET['controller'])){
+      $nombreControlador = $_GET['controller'].'Controller';
+      $controller = new $nombreControlador();
+  }else{
+      $controller = new articuloController();
+  }
+  // Se obtiene la acción a ejecutar
+  if(isset($_GET['action'])){
+      $metodo = $_GET['action'];
+      $controller->$metodo();      
+  }else{
+      $controller->listar();
+  }  
+?>

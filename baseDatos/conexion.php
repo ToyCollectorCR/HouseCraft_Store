@@ -4,7 +4,7 @@ class ConexionBD
     private $servidor = 'localhost';
     private $usuario = 'root';
     private $password = '';
-    private $baseDatos = 'universidad'; 
+    private $baseDatos = 'housecraftdb'; 
     private $coneccion;
     
     public function __construct() {
@@ -14,7 +14,7 @@ class ConexionBD
       $this->coneccion = mysqli_connect($this->servidor,$this->usuario,$this->password,$this->baseDatos);
       mysqli_query($this->coneccion, "SET NAMES 'utf8'");
       if(mysqli_connect_errno()){
-            echo 'Error en la conexion con la BD: ' . mysqli_connect_err().'<br>';
+            echo 'Error en la conexi�n con la BD: ' . mysqli_connect_err().'<br>';
       }
     }
     
