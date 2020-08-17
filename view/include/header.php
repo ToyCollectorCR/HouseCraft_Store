@@ -16,7 +16,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" href="#">HouseCraft</a>
+              <a class="navbar-brand" href="index.php">HouseCraft</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -28,18 +28,29 @@
                    <li><a href="index.php?controller=usuario&action=mostrarRegistar">Agregar Usuario</a></li>
                    <li><a href="index.php?controller=usuario&action=listar">Modificar Usuario</a></li>
                    <li><a href="index.php?controller=Estudiante&action=mostrarRegistar">Listado Ordenes de Compra</a></li>
-                   <li><a href="index.php?controller=Estudiante&action=mostrarRegistar">Mantenimiento Categorías</a></li>
                    <?php endif;?>
                    
                 </ul>                
-              </li>               
+              </li> 
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mantenimiento Categorías<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <?php if(isset($_SESSION['usuarioLogueado'])): ?>
+                   <li><a href="index.php?controller=categoria&action=listar">Listar</a></li>
+                   <li><a href="index.php?controller=categoria&action=mostrarRegistarCategoria">Agregar</a></li>
+                   <?php endif;?>
+                   
+                </ul>                
+              </li>                
+             
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Artesano <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                    <?php if(isset($_SESSION['usuarioLogueado'])): ?>
                     <li><a href="index.php?controller=Estudiante&action=listar">Modificar Datos Personales</a></li>
                    <li><a href="index.php?controller=Carrera&action=listar">Buscar Articulos</a></li>
-                   <li><a href="index.php?controller=Curso&action=listar">Agregar Articulos</a></li>
+                   <li><a href="index.php?controller=articulo&action=mostrarRegistarArticulo">Agregar Articulos</a></li>
                    <li><a href="index.php?controller=Profesor&action=listar">Eliminar Articulos</a></li>
                     <li><a href="index.php?controller=Profesor&action=listar">Modificar Articulos</a></li>
                      <li><a href="index.php?controller=Profesor&action=listar">Listado de órdenes de compra</a></li>

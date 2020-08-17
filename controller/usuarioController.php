@@ -42,8 +42,6 @@ class usuarioController {
     }
     
     
-    
-    
      public function listar(){         
          $usuarios = $this->model->listarUsuarios();
          require_once 'view/include/header.php';
@@ -73,9 +71,6 @@ class usuarioController {
      }
      
      
-     
-     
-     
      public function buscar(){
          $usuarios = $this->model->listarUsuarios();
          require_once 'view/include/header.php';
@@ -83,7 +78,6 @@ class usuarioController {
          require_once 'view/include/footer.php';
          
      }
-     
      
      
      
@@ -155,6 +149,5 @@ class usuarioController {
          header("location:index.php");
      }
     
-    
-    
+     
 }

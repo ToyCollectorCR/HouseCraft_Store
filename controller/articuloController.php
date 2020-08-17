@@ -11,6 +11,8 @@ class articuloController {
         $this->model = new articuloModel();
     }
     
+    //SECCION PARA FUNCIONES DE ARTICULOS - AGREGAR - EDITAR - BUSCAR - ELIMINAR - MODIFICAR - LISTAR ORDENES DE COMPRA
+    
      public function listar(){
          
          $articulos = $this->model->listarArticulos();
@@ -18,29 +20,34 @@ class articuloController {
          require_once 'view/articulo/listar.php';
          require_once 'view/include/footer.php';
      }
-     
-     
-     public function mostrarRegistar(){
+      
+    
+        public function mostrarRegistarArticulo(){
          require_once 'view/include/header.php';
-         require_once 'view/estudiante/crear.php';
+         require_once 'view/articulo/crear.php';
          require_once 'view/include/footer.php';         
      }
      
      public function registrar(){
          //1. Obtener todos los datos del formulario por $_POST
-         $cedula = $_POST['cedula'];
+
+         $codigo = $_POST['codigo'];
          $nombre = $_POST['nombre'];
-         $apellido = $_POST['apellido'];
-         $edad = $_POST['edad'];
+         $descripcion = $_POST['descripcion'];
+         $categoria = $_POST['categoria'];
+         $precio = $_POST['precio'];
+         $imagen = file_get_contents($_FILES['imagen']['tmp_name']);
+         $estado = $_POST['estado'];
+         
          
          //2. Crear un objeto Estudiante y enviar a actualizar
-         $estudiante = new Estudiante($cedula,$nombre,$apellido,$edad);  
+         $articulo = new articulos(0,$codigo,$nombre,$descripcion,$categoria,$precio,$imagen,$estado);  
          
          //3. llamar al modelo para registar un Estudiante
-         $this->model->registrarEstudiante($estudiante);
+         $this->model->registrarArticulo($articulo);
          
          //4. redirección index.    
-         $mensaje= "El estudiante fue registrado de manera correcta!";
+         $mensaje= "El Articulo Se Ha Registrado De Manera Correcta!";
          Util::mostarAlerta($mensaje);
      }
      

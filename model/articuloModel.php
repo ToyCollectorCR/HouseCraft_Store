@@ -49,18 +49,24 @@ class articuloModel{
         }
     }
     
-    public function registrarArticulo($estudiante){
+    public function registrarArticulo($articulo){
         $this->bd->getConeccion();
-        $sql="INSERT INTO ESTUDIANTES(CEDULA,NOMBRE,APELLIDO,EDAD) VALUES (?,?,?,?)";
-        $paramType= 'ssssdssi';
-        $paramValue= array($estudiante->getCedula(),
-                           $estudiante->getNombre(),
-                           $estudiante->getApellido(),
-                           $estudiante->getEdad());
+        $sql="INSERT INTO artículos(CODIGO,NOMBREARTICULO,DESCRIPCION,CATEGORIA,PRECIO,IMAGEN,ESTADO) VALUES (?,?,?,?,?,?,?)";
+        $paramType= 'ssssdss';
+        $paramValue= array($articulo->getCodigo(),
+                           $articulo->getNombrearticulo(),
+                           $articulo->getDescripcion(),
+                           $articulo->getCategoria(),        
+                           $articulo->getPrecio(),
+                           $articulo->getImagen(),
+                           $articulo->getEstado());
+
         $registros = $this->bd->executeQuery($sql, $paramType, $paramValue);         
         $this->bd->cerrarConeccion();
     }    
     
+    
+
     public function actualizar($articulo){
         $this->bd->getConeccion();        
         $sql="UPDATE artículos SET CODIGO=?, NOMBREARTICULO=?, DESCRIPCION=?, CATEGORIA=?, PRECIO=?, IMAGEN=?, ESTADO=? WHERE ID=?";
