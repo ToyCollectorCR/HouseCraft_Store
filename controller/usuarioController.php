@@ -49,6 +49,21 @@ class usuarioController {
          require_once 'view/include/footer.php';
      }
      
+     
+          public function listarID(){ 
+              $id = $_SESSION['id'];
+              //echo $id;
+              
+         $usuarios = $this->model->listarUsuariosID($id);
+         //var_dump($usuarios);
+         require_once 'view/include/header.php';
+         require_once 'view/usuario/listar.php';
+         require_once 'view/include/footer.php';
+     }
+     
+     
+     
+     
 
      
      public function mostrarBuscar(){

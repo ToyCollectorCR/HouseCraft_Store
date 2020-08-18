@@ -10,8 +10,9 @@ class articulos {
     private $precio;
     private $imagen;
     private $estado;
- 
-    function __construct($id, $codigo, $nombrearticulo, $descripcion, $categoria, $precio, $imagen, $estado) {
+    private $idartesano;
+            
+    function __construct($id, $codigo, $nombrearticulo, $descripcion, $categoria, $precio, $imagen, $estado, $idartesano) {
         $this->id = $id;
         $this->codigo = $codigo;
         $this->nombrearticulo = $nombrearticulo;
@@ -20,6 +21,7 @@ class articulos {
         $this->precio = $precio;
         $this->imagen = $imagen;
         $this->estado = $estado;
+        $this->idartesano = $idartesano;
     }
     
     function getId() {
@@ -54,6 +56,10 @@ class articulos {
         return $this->estado;
     }
 
+    function getIdartesano() {
+        return $this->idartesano;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -86,6 +92,9 @@ class articulos {
         $this->estado = $estado;
     }
 
+    function setIdartesano($idartesano) {
+        $this->idartesano = $idartesano;
+    }
 
 
     

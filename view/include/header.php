@@ -1,3 +1,26 @@
+ <?php
+ $tipo = '';
+ 
+ if(isset($_SESSION['usuarioLogueado'])): 
+               
+        $array = get_object_vars($_SESSION['usuarioLogueado']);
+        $contador=0;
+        foreach($array as $key => $valor)
+        { if($contador==9)
+        {    
+        $tipo= $valor;
+        }
+        if($contador==1){
+            $_SESSION['id'] = $valor;
+            
+        }
+        $contador++;
+        }
+        //echo $tipo;
+        
+endif;
+        ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +46,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrador <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <?php if(isset($_SESSION['usuarioLogueado'])): ?>
+                    
+                    <?php if($tipo=='Administrador'):?>
                    <li><a href="index.php?controller=usuario&action=mostrarBuscar">Buscar Usuarios</a></li>
                    <li><a href="index.php?controller=usuario&action=mostrarRegistar">Agregar Usuario</a></li>
                    <li><a href="index.php?controller=usuario&action=listar">Modificar Usuario</a></li>
@@ -36,7 +60,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mantenimiento Categorías<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <?php if(isset($_SESSION['usuarioLogueado'])): ?>
+                    <?php if($tipo == 'Administrador'):?>
                    <li><a href="index.php?controller=categoria&action=listar">Listar</a></li>
                    <li><a href="index.php?controller=categoria&action=mostrarRegistarCategoria">Agregar</a></li>
                    <?php endif;?>
@@ -47,18 +71,16 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Artesano <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                   <?php if(isset($_SESSION['usuarioLogueado'])): ?>
-                    <li><a href="index.php?controller=Estudiante&action=listar">Modificar Datos Personales</a></li>
+                   <?php if($tipo=='Artesano'):?>
+                    <li><a href="index.php?controller=usuario&action=listarID">Modificar Datos Personales</a></li>
                    <li><a href="index.php?controller=Carrera&action=listar">Buscar Articulos</a></li>
                    <li><a href="index.php?controller=articulo&action=mostrarRegistarArticulo">Agregar Articulos</a></li>
-                   <li><a href="index.php?controller=Profesor&action=listar">Eliminar Articulos</a></li>
-                    <li><a href="index.php?controller=Profesor&action=listar">Modificar Articulos</a></li>
-                     <li><a href="index.php?controller=Profesor&action=listar">Listado de órdenes de compra</a></li>
+                   <li><a href="index.php?controller=Profesor&action=listar">Listado de órdenes de compra</a></li>
                    <?php endif;?>
                 </ul>                
               </li>  
               <li class="dropdown">
-                <?php if(isset($_SESSION['usuarioLogueado'])): ?>  
+                <?php if(isset($_SESSION['usuarioLogueado'])):?>  
                 <a href="index.php?controller=usuario&action=cerrarSesion" class="dropdown-toggle" role="button" aria-expanded="false">Cerrar Sesión</a>
                 <?php else:?>
                 <a href="index.php?controller=usuario&action=mostrarLogin" class="dropdown-toggle" role="button" aria-expanded="false">Login</a>

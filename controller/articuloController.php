@@ -31,6 +31,7 @@ class articuloController {
      public function registrar(){
          //1. Obtener todos los datos del formulario por $_POST
 
+         $idartesano = $_SESSION['id'];
          $codigo = $_POST['codigo'];
          $nombre = $_POST['nombre'];
          $descripcion = $_POST['descripcion'];
@@ -40,8 +41,9 @@ class articuloController {
          $estado = $_POST['estado'];
          
          
+         
          //2. Crear un objeto Estudiante y enviar a actualizar
-         $articulo = new articulos(0,$codigo,$nombre,$descripcion,$categoria,$precio,$imagen,$estado);  
+         $articulo = new articulos(0,$codigo,$nombre,$descripcion,$categoria,$precio,$imagen,$estado,$idartesano);  
          
          //3. llamar al modelo para registar un Estudiante
          $this->model->registrarArticulo($articulo);
@@ -65,7 +67,8 @@ class articuloController {
      public function guardarCambios(){
          //1. Obtener todos los datos del formulario por $_POST
            
-                $id = $_POST['id'];
+         $idartesano = $_SESSION['id'];      
+         $id = $_POST['id'];
                 $codigo = $_POST['codigo'];
                 $nombrearticulo = $_POST['nombrearticulo'];
                 $descripcion = $_POST['descripcion'];
@@ -76,7 +79,7 @@ class articuloController {
          
          
          //2. Crear un objeto articulo y enviar a actualizar
-         $articulo = new articulos($id,$codigo,$nombrearticulo,$descripcion,$categoria,$precio,$imagen,$estado);         
+         $articulo = new articulos($id,$codigo,$nombrearticulo,$descripcion,$categoria,$precio,$imagen,$estado,$idartesano);         
          
          //3. llamar al modelo para guarde los cambios
          $this->model->actualizar($articulo);
@@ -84,6 +87,24 @@ class articuloController {
          //4. redirección index.    
          header("location:index.php");
      }
+     
+     
+     public function eliminaArticulo(){
+            $id = $_GET['id'];
+            
+            
+       //2. Crear un objeto 
+         $articulo = new articulos($id,'','','','','','','','');  
+         
+       //3. llamar al modelo para que elimine
+         $this->model->eliminarArticulo($articulo);
+         
+         //4. redirección index.    
+         header("location:index.php");
+     
+     }
+     
+     
 
 }
 

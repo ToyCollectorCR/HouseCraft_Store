@@ -19,7 +19,7 @@ class articuloModel{
         $this->bd->cerrarConeccion();
         
         foreach($registros as $row) {
-            $articulo = new articulos($row['id'],$row['codigo'],$row['nombrearticulo'],$row['descripcion'],$row['categoria'],$row['precio'],$row['imagen'],$row['estado']); 
+            $articulo = new articulos($row['id'],$row['codigo'],$row['nombrearticulo'],$row['descripcion'],$row['categoria'],$row['precio'],$row['imagen'],$row['estado'],$row['idartesano']); 
             array_push($articulos, $articulo);
         }
         
@@ -41,8 +41,9 @@ class articuloModel{
             $precio= $registros[0]['precio'];
             $imagen= $registros[0]['imagen'];
             $estado= $registros[0]['estado'];
+            $idartesano = $registros[0]['idartesano'];
             
-            $articulo = new articulos($id,$codigo,$nombrearticulo,$descripcion,$categoria,$precio,$imagen,$estado);
+            $articulo = new articulos($id,$codigo,$nombrearticulo,$descripcion,$categoria,$precio,$imagen,$estado,$idartesano);
             return $articulo;
         }else{
            return null;   
@@ -51,15 +52,16 @@ class articuloModel{
     
     public function registrarArticulo($articulo){
         $this->bd->getConeccion();
-        $sql="INSERT INTO artículos(CODIGO,NOMBREARTICULO,DESCRIPCION,CATEGORIA,PRECIO,IMAGEN,ESTADO) VALUES (?,?,?,?,?,?,?)";
-        $paramType= 'ssssdss';
+        $sql="INSERT INTO artículos(CODIGO,NOMBREARTICULO,DESCRIPCION,CATEGORIA,PRECIO,IMAGEN,ESTADO,IDARTESANO) VALUES (?,?,?,?,?,?,?,?)";
+        $paramType= 'ssssdssi';
         $paramValue= array($articulo->getCodigo(),
                            $articulo->getNombrearticulo(),
                            $articulo->getDescripcion(),
                            $articulo->getCategoria(),        
                            $articulo->getPrecio(),
                            $articulo->getImagen(),
-                           $articulo->getEstado());
+                           $articulo->getEstado(),
+                           $articulo->getIdartesano());
 
         $registros = $this->bd->executeQuery($sql, $paramType, $paramValue);         
         $this->bd->cerrarConeccion();
@@ -69,7 +71,7 @@ class articuloModel{
 
     public function actualizar($articulo){
         $this->bd->getConeccion();        
-        $sql="UPDATE artículos SET CODIGO=?, NOMBREARTICULO=?, DESCRIPCION=?, CATEGORIA=?, PRECIO=?, IMAGEN=?, ESTADO=? WHERE ID=?";
+        $sql="UPDATE artículos SET CODIGO=?, NOMBREARTICULO=?, DESCRIPCION=?, CATEGORIA=?, PRECIO=?, IMAGEN=?, ESTADO=?, IDARTESANO=? WHERE ID=?";
         $paramType= 'ssssdssi';
         $paramValue= array($articulo->getCodigo(),
                            $articulo->getNombrearticulo(),
@@ -77,10 +79,21 @@ class articuloModel{
                            $articulo->getPrecio(),
                            $articulo->getImagen(),  
                            $articulo->getEstado(),
+                           $articulo->getIdartesano(),
                            $articulo->getId());
+        
                             
         $registros = $this->bd->executeQuery($sql, $paramType, $paramValue);                
         $this->bd->cerrarConeccion();        
     }
+    
+    function eliminarArticulo($articulo) {
+        $this->bd->getConeccion(); 
+        $sql = "DELETE FROM artículos WHERE id = ?";
+        $paramType = "i";
+        $paramValue = array($articulo->getId());
+        $this->bd->executeQuery($sql, $paramType, $paramValue);
+        $this->bd->cerrarConeccion();
+    }    
     
 }

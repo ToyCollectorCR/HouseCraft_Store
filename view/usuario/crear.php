@@ -47,18 +47,29 @@
                         <input type="date" class="form-control" name="fechaingreso">
                     </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label" for="txt_edad">TIPO:</label>
+                    <label class=" col-sm-2 control-label">TIPO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="tipo">
+                        <select class="form-control" name="tipo">
+                            <option>Administrador</option>
+                            <option>Artesano</option>
+                         </select>
                     </div>
                 </div>
+                
+                
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label" for="txt_edad">ESTADO:</label>
+                    <label class=" col-sm-2 control-label">ESTADO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="estado">
+                        <select class="form-control" name="estado">
+                            <option>Activado</option>
+                            <option>Desactivado</option>
+                         </select>
                     </div>
                 </div>
+                
+
                 <div class="form-group">
                     <div class="col-md-12 col-md-off-set-3">
                         <input type="submit" class="btn btn-primary form-control" value="registrar">

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/articulo/editar.php</file>
-            <file>file:/C:/xampp/htdocs/HouseCraft_Store/controller/articuloController.php</file>
-            <file>file:/C:/xampp/htdocs/HouseCraft_Store/model/articuloModel.php</file>
-            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/articulo/listar.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/usuario/editar.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/usuario/listar.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/model/categoriaModel.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/controller/categoriaController.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/categorias/listar.php</file>
+            <file>file:/C:/xampp/htdocs/HouseCraft_Store/view/include/header.php</file>
         </group>
     </open-files>
 </project-private>

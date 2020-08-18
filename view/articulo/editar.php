@@ -50,8 +50,10 @@
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_edad">IMAGEN:</label>
                     <div class="col-sm-10">
-                        <input type="text" style="visibility: hidden" class="form-control" name="imagen" value="<?=$articulo->getImagen();?>">
+                        <input type="file"  required="" class="form-control" name="imagen">
                    
+                       
+                        
                     </div>
                 </div>
                               

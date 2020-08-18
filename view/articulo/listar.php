@@ -1,6 +1,8 @@
 <div class="container" style="margin-top: 80px">
     <div class="jumbotron">
         <h2>Listado de Productos</h2>
+        
+        
     </div>
     <div class="container">
         <table class="table table-striped">
@@ -33,7 +35,7 @@
                             <a href="#" class="btn btn-primary">Comprar</a>
                             <?php if(isset($_SESSION['usuarioLogueado'])): ?>
                             <a href="index.php?controller=articulo&action=editar&id=<?=$articulo->getId();?>" class="btn btn-primary">Editar</a>
-                            <a href="#" class="btn btn-danger">Eliminar</a>
+                            <a href="index.php?controller=articulo&action=eliminaArticulo&id=<?=$articulo->getId();?>" class="btn btn-danger">Eliminar</a>
                             <?php endif;?>
                         </th>
                     </tr>

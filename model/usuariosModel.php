@@ -74,6 +74,28 @@ class usuariosModel {
         return $usuarios;
     }
     
+    
+    
+        public function listarUsuariosID($id){
+        $usuarios = array();
+        $this->bd->getConeccion();        
+        $sql="SELECT * FROM usuarios WHERE ID = $id";        
+        $registros = $this->bd->executeQueryReturnData($sql);                
+        $this->bd->cerrarConeccion();
+        
+        foreach($registros as $row) {
+            $usuario = new usuarios($row['id'],$row['codigo'],$row['password'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['fechaingreso'],$row['tipo'],$row['estado']); 
+            array_push($usuarios, $usuario);
+        }
+        
+        return $usuarios;
+    }
+    
+    
+    
+    
+    
+    
     public function usuarioBuscar($id){
         $this->bd->getConeccion();
         $sql="SELECT * FROM usuarios WHERE ID = $id";        
