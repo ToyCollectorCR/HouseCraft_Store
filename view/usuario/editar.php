@@ -62,10 +62,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label">TIPO:</label>
+                    <label class=" col-sm-2 control-label">TIPO: <?=$usuario->getTipo();?> </label>
                     <div class="col-sm-10">
                         <select class="form-control" name="tipo">
-                            <option value="<?=$usuario->getTipo();?>" disabled="" selected=""><?=$usuario->getTipo();?></option>
+                           
                             <option>Administrador</option>
                             <option>Artesano</option>
                          </select>
@@ -73,10 +73,10 @@
                 </div>
                                 
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label">ESTADO:</label>
+                    <label class=" col-sm-2 control-label">ESTADO: <?=$usuario->getEstado();?> </label>
                     <div class="col-sm-10">
                         <select class="form-control" name="estado">
-                            <option value="<?=$usuario->getEstado();?>" disabled="" selected=""><?=$usuario->getEstado();?></option>
+                            
                             <option>Activado</option>
                             <option>Desactivado</option>
                          </select>

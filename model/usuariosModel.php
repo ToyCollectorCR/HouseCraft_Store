@@ -14,11 +14,13 @@ class usuariosModel {
         
         $this->bd->getConeccion();
         
-        $sql="SELECT * FROM usuarios WHERE CORREO ='$correo' AND PASSWORD = '$password'";        
+        $sql="SELECT * FROM usuarios WHERE CORREO ='$correo'";        
         $registros = $this->bd->executeQueryReturnData($sql);  
         $this->bd->cerrarConeccion();
 
         if($registros !=null){
+            if(password_verify($password,$registros[0]['password'])){
+            
             $id   = $registros[0]['id'];
             $codigo   = $registros[0]['codigo'];
             $password = $registros[0]['password'];
@@ -30,11 +32,15 @@ class usuariosModel {
             $tipo   = $registros[0]['tipo'];
             $estado   = $registros[0]['estado'];
             
-            
             $usuario = new usuarios($id,$codigo,$password,$nombre,$apellido,$correo,$telefono,$fechaingreso,$tipo,$estado);
-            return $usuario;
+            return $usuario; 
+           
+            }else{
+              return null; 
+            }
+
         }else{
-           return null;   
+              
         }         
         
     }
