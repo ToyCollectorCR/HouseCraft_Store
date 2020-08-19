@@ -105,6 +105,26 @@ class articuloController {
      }
      
      
+     
+     public function mostrarBuscar(){
+        $articulos = $this->model->listarArticulos();
+         require_once 'view/include/header.php';
+         require_once 'view/articulo/buscar.php';
+         require_once 'view/include/footer.php';         
+     }
+     
+     public function busqueda(){
+         //1. obtener la busqueda del $_POST
+         $busqueda = $_POST['busqueda'];
+         //2. usar el modelo para traer de la BD el usuario
+         $articulos = $this->model->buscaArticulo($busqueda);
+         //3. llamar a la vista de editar
+         require_once 'view/include/header.php';
+         require_once 'view/articulo/buscar.php';
+         require_once 'view/include/footer.php';
+        
+     }
+     
 
 }
 

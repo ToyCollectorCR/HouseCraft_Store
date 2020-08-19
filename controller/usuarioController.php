@@ -11,6 +11,9 @@ class usuarioController {
     }
     
     public function login(){
+        
+      
+        
         //1. Obtener los datos de $_POST
          $correo   = $_POST['correo'];
          $password = $_POST['password'];

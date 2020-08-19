@@ -94,6 +94,25 @@ class articuloModel{
         $paramValue = array($articulo->getId());
         $this->bd->executeQuery($sql, $paramType, $paramValue);
         $this->bd->cerrarConeccion();
-    }    
+    } 
+    
+    
+     function buscaArticulo($busqueda) {
+        $this->bd->getConeccion();         
+        $sql = "SELECT id, codigo, nombrearticulo, descripcion , categoria  , precio, imagen, estado , idartesano FROM artículos WHERE Match(nombrearticulo,categoria,estado) Against ('$busqueda')";
+        $registros = $this->bd->executeQueryReturnData($sql); 
+        $articulos =array();
+        
+        foreach ($registros as $posicion => $row){
+            $articulo = new articulos($row['id'],$row['codigo'],$row['nombrearticulo'],$row['descripcion'],$row['categoria'],$row['precio'],$row['imagen'],$row['estado'],$row['idartesano']);
+            array_push($articulos, $articulo);
+        }
+        $this->bd->cerrarConeccion();       
+        return $articulos;
+    }
+    
+    
+    
+    
     
 }

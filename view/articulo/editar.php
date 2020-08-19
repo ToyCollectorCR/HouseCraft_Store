@@ -15,35 +15,35 @@
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_nombre">CODIGO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" readonly="" name="codigo" value="<?=$articulo->getCodigo();?>">
+                        <input type="text" class="form-control"  name="codigo" value="<?=$articulo->getCodigo();?>">
                     </div>
                 </div>
                
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_apellidos">NOMBRE:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" readonly="" name="nombrearticulo" value="<?=$articulo->getNombrearticulo();?>">
+                        <input type="text" class="form-control"  name="nombrearticulo" value="<?=$articulo->getNombrearticulo();?>">
                     </div>
                 </div>
                
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_edad">DESCRIPCION:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" readonly="" name="descripcion" value="<?=$articulo->getDescripcion();?>">
+                        <input type="text" class="form-control"  name="descripcion" value="<?=$articulo->getDescripcion();?>">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_edad">CATEGORIA:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" readonly="" name="categoria" value="<?=$articulo->getCategoria();?>">
+                        <input type="text" class="form-control"  name="categoria" value="<?=$articulo->getCategoria();?>">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_edad">PRECIO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" readonly="" name="precio" value="<?=$articulo->getPrecio();?>">
+                        <input type="text" class="form-control"  name="precio" value="<?=$articulo->getPrecio();?>">
                     </div>
                 </div>
                 
@@ -51,18 +51,21 @@
                     <label class=" col-sm-2 control-label" for="txt_edad">IMAGEN:</label>
                     <div class="col-sm-10">
                         <input type="file"  required="" class="form-control" name="imagen">
-                   
-                       
-                        
                     </div>
                 </div>
-                              
-                <div class="form-group">
-                    <label class=" col-sm-2 control-label" for="txt_edad">ESTADO:</label>
+                          
+                 <div class="form-group">
+                    <label class=" col-sm-2 control-label">ESTADO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="estado" value="<?=$articulo->getEstado();?>">
+                        <select class="form-control" name="estado">
+                            <option value="<?=$articulo->getEstado();?>" disabled="" selected=""><?=$articulo->getEstado();?></option>
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                            <option>Agotado</option>
+                         </select>
                     </div>
                 </div>
+      
                                 
                 <div class="form-group">
                     <div class="col-md-12 col-md-off-set-3">

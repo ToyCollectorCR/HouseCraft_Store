@@ -73,7 +73,7 @@ endif;
                 <ul class="dropdown-menu" role="menu">
                    <?php if($tipo=='Artesano'):?>
                     <li><a href="index.php?controller=usuario&action=listarID">Modificar Datos Personales</a></li>
-                   <li><a href="index.php?controller=Carrera&action=listar">Buscar Articulos</a></li>
+                   <li><a href="index.php?controller=articulo&action=mostrarBuscar">Buscar Articulos</a></li>
                    <li><a href="index.php?controller=articulo&action=mostrarRegistarArticulo">Agregar Articulos</a></li>
                    <li><a href="index.php?controller=Profesor&action=listar">Listado de órdenes de compra</a></li>
                    <?php endif;?>

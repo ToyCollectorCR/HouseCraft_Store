@@ -49,11 +49,17 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label" for="txt_edad">ESTADO:</label>
+                    <label class=" col-sm-2 control-label">ESTADO:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="estado">
+                        <select class="form-control" name="estado">
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                            <option>Agotado</option>
+                         </select>
                     </div>
                 </div>
+
+
                
                 <div class="form-group">
                     <div class="col-md-12 col-md-off-set-3">
@@ -64,7 +70,4 @@
         </div>
     </div>
 </div>
-
-
-
 
