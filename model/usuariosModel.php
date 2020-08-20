@@ -19,7 +19,7 @@ class usuariosModel {
         $this->bd->cerrarConeccion();
 
         if($registros !=null){
-            if(password_verify($password,$registros[0]['password'])){
+            //if(password_verify($password,$registros[0]['password'])){
             
             $id   = $registros[0]['id'];
             $codigo   = $registros[0]['codigo'];
@@ -35,9 +35,9 @@ class usuariosModel {
             $usuario = new usuarios($id,$codigo,$password,$nombre,$apellido,$correo,$telefono,$fechaingreso,$tipo,$estado);
             return $usuario; 
            
-            }else{
-              return null; 
-            }
+            //}else{
+             // return null; 
+          // }
 
         }else{
               

@@ -51,7 +51,7 @@ endif;
                    <li><a href="index.php?controller=usuario&action=mostrarBuscar">Buscar Usuarios</a></li>
                    <li><a href="index.php?controller=usuario&action=mostrarRegistar">Agregar Usuario</a></li>
                    <li><a href="index.php?controller=usuario&action=listar">Modificar Usuario</a></li>
-                   <li><a href="index.php?controller=Estudiante&action=mostrarRegistar">Listado Ordenes de Compra</a></li>
+                   <li><a href="index.php?controller=compras&action=listar">Listado Ordenes de Compra</a></li>
                    <?php endif;?>
                    
                 </ul>                
@@ -75,7 +75,7 @@ endif;
                     <li><a href="index.php?controller=usuario&action=listarID">Modificar Datos Personales</a></li>
                    <li><a href="index.php?controller=articulo&action=mostrarBuscar">Buscar Articulos</a></li>
                    <li><a href="index.php?controller=articulo&action=mostrarRegistarArticulo">Agregar Articulos</a></li>
-                   <li><a href="index.php?controller=Profesor&action=listar">Listado de órdenes de compra</a></li>
+                   <li><a href="index.php?controller=compras&action=listar">Listado de órdenes de compra</a></li>
                    <?php endif;?>
                 </ul>                
               </li>  

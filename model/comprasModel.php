@@ -57,5 +57,20 @@ class comprasModel {
     }    
     
     
+    public function listarCompras(){
+        $compras = array();
+        $this->bd->getConeccion();        
+        $sql="SELECT * FROM compras";        
+        $registros = $this->bd->executeQueryReturnData($sql);                
+        $this->bd->cerrarConeccion();
+        
+        foreach($registros as $row) {
+            $compra = new compras($row['id'],$row['nombrecomprador'],$row['telefono'],$row['direccion'],$row['tc'],$row['nombrearticulo'],$row['descripcion'],$row['precio'],$row['idartesano']); 
+            array_push($compras, $compra);
+        }
+        
+        return $compras;
+    }
+    
     
 }

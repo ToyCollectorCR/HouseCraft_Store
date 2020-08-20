@@ -35,6 +35,7 @@ class comprasController {
                 $nombrearticulo  = $_POST['nombrearticulo'];
                 $descripcion  = $_POST['descripcion'];
                 $precio  = $_POST['precio'];
+                //$idartesano = $_POST['idartesano'];
                 
          
          
@@ -44,9 +45,17 @@ class comprasController {
          //3. llamar al modelo para guarde los cambios
          $this->model->comprarArticulo($compra);
          
-         //4. redirección index.    
-         header("location:index.php");
+ //4. redirección index.    
+         $mensaje= "Pronto Estaremos En Contacto Para Hacer La Entrega Del Artículo.";
+         Util::mostarAlerta($mensaje);
 
+     }
+     
+     public function listar(){         
+         $compras = $this->model->listarCompras();
+         require_once 'view/include/header.php';
+         require_once 'view/compras/listar.php';
+         require_once 'view/include/footer.php';
      }
     
 }

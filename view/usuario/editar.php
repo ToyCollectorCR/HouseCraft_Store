@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_apellidos">PASSWORD:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="password" value="<?=$usuario->getPassword();?>">
+                        <input type="text" required="" class="form-control" name="password" value="<?=$usuario->getPassword();?>">
                     </div>
                 </div>
                
