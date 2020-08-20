@@ -73,4 +73,18 @@ class comprasModel {
     }
     
     
+     public function estadoArticulo($compra){
+        $this->bd->getConeccion();        
+        $sql="UPDATE artículos SET ESTADO='AGOTADO' WHERE ID=?";
+        $paramType= 'i';
+        $paramValue= array($compra->getId());
+        
+                            
+        $registros = $this->bd->executeQuery($sql, $paramType, $paramValue);                
+        $this->bd->cerrarConeccion();        
+    }
+    
+    
+    
+    
 }

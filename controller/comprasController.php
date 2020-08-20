@@ -25,7 +25,7 @@ class comprasController {
      public function guardarCompra(){
          //1. Obtener todos los datos del formulario por $_POST
            
-                $idartesano = $_SESSION['id'];      
+               // $idartesano = $_SESSION['id'];      
                 
                 $id  = $_POST['id'];
                 $nombrecomprador  = $_POST['nombrecomprador'];
@@ -35,7 +35,7 @@ class comprasController {
                 $nombrearticulo  = $_POST['nombrearticulo'];
                 $descripcion  = $_POST['descripcion'];
                 $precio  = $_POST['precio'];
-                //$idartesano = $_POST['idartesano'];
+                $idartesano = $_POST['idartesano'];
                 
          
          
@@ -44,10 +44,11 @@ class comprasController {
          
          //3. llamar al modelo para guarde los cambios
          $this->model->comprarArticulo($compra);
+         $this->model->estadoArticulo($compra);
          
  //4. redirección index.    
-         $mensaje= "Pronto Estaremos En Contacto Para Hacer La Entrega Del Artículo.";
-         Util::mostarAlerta($mensaje);
+        $mensaje= "Pronto Estaremos En Contacto Para Hacer La Entrega Del Artículo.";
+        Util::mostarAlerta($mensaje);
 
      }
      
